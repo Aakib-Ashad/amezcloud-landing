@@ -1023,7 +1023,7 @@ export default function SoftwareShowcase() {
                         exit={{ opacity: 0, scale: 0.95, transition: { duration: 0.12 } }}
                         onClick={() => setSelected(item)}
                         whileHover={{ x: 2 }}
-                        className="w-full text-left flex items-center gap-3 px-3 py-6 rounded-xl border transition-all relative overflow-hidden"
+                        className="w-full text-left flex items-center gap-3 px-3 py-3 rounded-xl border transition-all relative overflow-hidden"
                         style={
                           isActive
                             ? { background: "#f8fafc", borderColor: "#e2e8f0", boxShadow: "0 2px 8px rgba(37,99,235,0.10)" }

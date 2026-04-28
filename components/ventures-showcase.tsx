@@ -11,21 +11,27 @@ const ventures = [
     gradient: 'from-cyan-500 to-blue-500'
   },
   {
-    name: 'Amez Ads',
+    name: 'Amez Tower',
+    logo: '/images/ameztower_logo.svg',
+    category: 'Amez Downtown City',
+    gradient: 'from-cyan-500 to-blue-500'
+  },
+  {
+    name: 'Amez Prime',
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-tIBoXKs1Y48aDMGF8cHPjbCBFNzMO7.jpg',
-    category: 'Digital Marketing',
+    category: 'Real Estate Hub',
     gradient: 'from-blue-500 to-violet-500'
   },
   {
-    name: 'Amez Media',
+    name: 'Amez Visuals',
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-mJaVhq66WcaGrgJiEivWAQfEpR405B.jpg',
     category: 'Media & Entertainment',
     gradient: 'from-orange-400 to-pink-500'
   },
   {
-    name: 'Amez Creative',
+    name: 'Amez Freelance',
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4-YtJyeEOQiyNqAgX7hWBVzXKufCOAhF.jpg',
-    category: 'Design Studio',
+    category: 'Freelancers Hub',
     gradient: 'from-cyan-400 to-pink-500'
   },
   {
@@ -47,7 +53,7 @@ const ventures = [
     gradient: 'from-violet-500 to-fuchsia-500'
   },
   {
-    name: 'Amez Invest',
+    name: 'Amez Hub',
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/8-kZvmNtukMR0KraaLcyxPTm4cjRp2E3.jpg',
     category: 'Investment & Finance',
     gradient: 'from-emerald-500 to-cyan-500'
@@ -59,13 +65,13 @@ const ventures = [
     gradient: 'from-pink-500 to-orange-500'
   },
   {
-    name: 'Amez Pay',
+    name: 'Amez Cards',
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/10-BVNpE11ISs2S4MQOAAx0sSLF7Oj9eu.jpg',
     category: 'Payment Solutions',
     gradient: 'from-indigo-500 to-purple-600'
   },
   {
-    name: 'AmezExpress',
+    name: 'Amez Express',
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/11-MmtovOM2Hx2FdWsYdrmyIphlN3tPml.jpg',
     category: 'E-Commerce',
     gradient: 'from-green-500 to-emerald-600'
@@ -77,31 +83,31 @@ const ventures = [
     gradient: 'from-green-600 to-lime-500'
   },
   {
-    name: 'Ameztine',
+    name: 'Amez Line',
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/13-NliIzllaOXqfV2ZMAh8s1yjOQLOO0N.jpg',
     category: 'Crafts & Design',
     gradient: 'from-indigo-600 to-violet-500'
   },
   {
-    name: 'Amez Repair',
+    name: 'Hight-Tech Marketing',
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/14-VYGDI334gu78VxCZoLNpfCjDiY7Wjc.jpg',
-    category: 'Device Services',
+    category: 'Electrical & Electronics',
     gradient: 'from-blue-600 to-red-500'
   },
   {
-    name: 'AVOQS',
+    name: 'Avoqs',
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/15-ZFkUDPs83bmOQVzeXMzNS1VqJqT4kY.jpg',
     category: 'Fashion & Lifestyle',
     gradient: 'from-gray-800 to-gray-600'
   },
   {
-    name: 'Amez Homes',
+    name: 'Amez Furns',
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/16-6QPTlxMMmVDVkWRvxR2V7sy5CiTddO.jpg',
-    category: 'Real Estate',
+    category: 'Furnitures Hub',
     gradient: 'from-rose-600 to-purple-600'
   },
   {
-    name: 'Amez Kitchen',
+    name: 'Firebowl',
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/17-DP8pRKf93FBmFoBgCiSSxaCMu0x7JM.jpg',
     category: 'Food & Culinary',
     gradient: 'from-orange-500 to-red-500'
@@ -125,7 +131,7 @@ const item = {
 
 export default function VenturesShowcase() {
   return (
-    <section className="py-24 bg-gradient-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
+    <section className="py-24 bg-linear-to-br from-slate-50 via-white to-blue-50 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute top-20 left-10 w-72 h-72 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob" />
@@ -149,12 +155,12 @@ export default function VenturesShowcase() {
             transition={{ duration: 0.5 }}
             className="inline-block mb-4"
           >
-            <span className="px-4 py-2 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold tracking-wide uppercase shadow-lg">
+            <span className="px-4 py-2 rounded-full bg-linear-to-r from-blue-600 to-purple-600 text-white text-sm font-semibold tracking-wide uppercase shadow-lg">
               Our Ventures
             </span>
           </motion.div>
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 text-balance">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600">
+            <span className="bg-clip-text text-transparent bg-linear-to-r from-blue-600 via-purple-600 to-pink-600">
               17+ Innovative
             </span>{' '}
             Subsidiaries
@@ -186,7 +192,7 @@ export default function VenturesShowcase() {
               {/* Card */}
               <div className="relative bg-white rounded-2xl shadow-md hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
                 {/* Gradient overlay on hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${venture.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
+                <div className={`absolute inset-0 bg-linear-to-br ${venture.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
                 
                 {/* Logo container */}
                 <div className="aspect-square p-6 flex items-center justify-center relative">
@@ -204,7 +210,7 @@ export default function VenturesShowcase() {
                 <motion.div
                   initial={{ opacity: 0, y: 10 }}
                   whileHover={{ opacity: 1, y: 0 }}
-                  className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-gray-900 via-gray-900/95 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  className="absolute inset-x-0 bottom-0 bg-linear-to-t from-gray-900 via-gray-900/95 to-transparent p-4 opacity-0 group-hover:opacity-100 transition-all duration-300"
                 >
                   <h3 className="text-white font-semibold text-sm mb-1 line-clamp-1">
                     {venture.name}
@@ -215,11 +221,11 @@ export default function VenturesShowcase() {
                 </motion.div>
 
                 {/* Corner gradient accent */}
-                <div className={`absolute top-0 right-0 w-16 h-16 bg-gradient-to-br ${venture.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300`} />
+                <div className={`absolute top-0 right-0 w-16 h-16 bg-linear-to-br ${venture.gradient} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300`} />
               </div>
 
               {/* Index number badge */}
-              <div className="absolute -top-2 -left-2 w-7 h-7 bg-gradient-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute -top-2 -left-2 w-7 h-7 bg-linear-to-br from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-white text-xs font-bold shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                 {String(index + 1).padStart(2, '0')}
               </div>
             </motion.div>
@@ -249,7 +255,7 @@ export default function VenturesShowcase() {
               whileHover={{ scale: 1.05 }}
               className="text-center p-6 rounded-2xl bg-white shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
-              <div className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 mb-2">
+              <div className="text-3xl md:text-4xl font-bold bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-purple-600 mb-2">
                 {stat.number}
               </div>
               <div className="text-sm text-gray-600 font-medium">
@@ -270,7 +276,7 @@ export default function VenturesShowcase() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
-            className="px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white font-semibold rounded-full shadow-lg hover:shadow-2xl transition-all duration-300"
+            className="px-8 py-4 bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 text-white font-semibold rounded-full shadow-lg hover:shadow-2xl transition-all duration-300"
           >
             Explore All Ventures
           </motion.button>

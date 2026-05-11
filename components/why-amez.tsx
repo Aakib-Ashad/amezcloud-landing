@@ -129,9 +129,9 @@ export default function WhyAmez() {
               className="rounded-2xl overflow-hidden relative cursor-default backdrop-blur-sm border border-white/20 shadow-xl hover:shadow-2xl"
               style={{ background: grad }}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-white/20 via-white/5 to-transparent" />
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/50 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/15 to-transparent" />
+              <div className="absolute inset-0 bg-linear-to-br from-white/20 via-white/5 to-transparent" />
+              <div className="absolute top-0 left-0 right-0 h-px bg-linear-to-r from-transparent via-white/50 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 h-12 bg-linear-to-t from-black/15 to-transparent" />
               <div className="relative z-10 p-5">
                 <motion.div
                   whileHover={{ rotate: -8, scale: 1.15 }}
@@ -172,7 +172,7 @@ export default function WhyAmez() {
                 className="px-4 py-1.5 rounded-full text-xs font-bold cursor-default text-white backdrop-blur-sm border border-white/20 shadow-md relative overflow-hidden"
                 style={{ background: grad }}
               >
-                <span className="absolute inset-0 bg-gradient-to-br from-white/20 via-transparent to-transparent" />
+                <span className="absolute inset-0 bg-linear-to-br from-white/20 via-transparent to-transparent" />
                 <span className="relative z-10 drop-shadow-sm">{label}</span>
               </motion.span>
             ))}

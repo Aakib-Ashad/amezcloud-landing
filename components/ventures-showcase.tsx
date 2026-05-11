@@ -10,10 +10,16 @@ const ventures = [
     category: 'Cloud Services',
     gradient: 'from-cyan-500 to-blue-500'
   },
+    {
+    name: 'Amez City',
+    logo: 'images/amezcity.svg',
+    category: 'Amez Downtown City',
+    gradient: 'from-cyan-500 to-blue-500'
+  },
   {
     name: 'Amez Tower',
     logo: '/images/ameztower_logo.svg',
-    category: 'Amez Downtown City',
+    category: 'Amez Horizon Tower Mall',
     gradient: 'from-cyan-500 to-blue-500'
   },
   {

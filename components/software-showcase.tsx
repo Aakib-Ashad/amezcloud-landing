@@ -871,6 +871,19 @@ export default function SoftwareShowcase() {
     setSelected(first);
   };
 
+  // ── NEW: Request Demo click handler ──────────────────────────────────────
+  const handleRequestDemo = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    // Store the selected software name in sessionStorage
+    sessionStorage.setItem("demoService", selected.name);
+    // Dispatch custom event for same-page communication
+    window.dispatchEvent(
+      new CustomEvent("demo-request", { detail: { service: selected.name } })
+    );
+    // Smooth scroll to contact section
+    document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <section id="software" className="py-24 bg-gradient-to-b from-white to-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1029,8 +1042,8 @@ export default function SoftwareShowcase() {
                             ? { background: "#f8fafc", borderColor: "#e2e8f0", boxShadow: "0 2px 8px rgba(37,99,235,0.10)" }
                             : { background: "#fff", borderColor: "#f1f5f9" }
                         }
-                      >
-                        {/* Active left bar */}
+                      >    
+                      {/* Active left bar */}
                         {isActive && (
                           <div
                             className="absolute left-0 top-2 bottom-2 w-1 rounded-full"
@@ -1039,13 +1052,13 @@ export default function SoftwareShowcase() {
                         )}
 
                         {/* Icon */}
-                        <div
+                         <div
                           className="w-9 h-9 rounded-lg flex items-center justify-center shrink-0"
                           style={{ background: isActive ? item.grad : "#f1f5f9" }}
                         >
                           <Icon className="w-4 h-4" style={{ color: isActive ? "#fff" : "#94a3b8" }} />
                         </div>
-
+                        
                         {/* Text */}
                         <div className="min-w-0 flex-1">
                           <p className="text-xs font-semibold leading-snug truncate" style={{ color: "#1e293b" }}>
@@ -1150,15 +1163,19 @@ export default function SoftwareShowcase() {
                       <p className="text-sm font-semibold text-gray-700">{selected.pricing}</p>
                     </div>
                     <div className="flex gap-2 shrink-0">
+
+                      {/* ── CHANGED: Request Demo button ── */}
                       <motion.a
                         href="#contact"
+                        onClick={handleRequestDemo}
                         whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}
                         className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-gray-200 text-sm font-semibold text-gray-600 hover:border-blue-300 hover:text-blue-600 transition-colors bg-white shadow-sm"
                       >
                         Request Demo
                         <ExternalLink className="w-3.5 h-3.5" />
                       </motion.a>
-                      <motion.a
+
+                      {/* <motion.a
                         href="#contact"
                         whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.96 }}
                         className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl text-white text-sm font-bold shadow-lg relative overflow-hidden border border-white/20"
@@ -1166,7 +1183,7 @@ export default function SoftwareShowcase() {
                       >
                         <span className="absolute inset-0 bg-gradient-to-br from-white/15 via-transparent to-transparent" />
                         <span className="relative z-10">Buy Now</span>
-                      </motion.a>
+                      </motion.a> */}
                     </div>
                   </div>
                 </div>

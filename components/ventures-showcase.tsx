@@ -117,6 +117,18 @@ const ventures = [
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/17-DP8pRKf93FBmFoBgCiSSxaCMu0x7JM.jpg',
     category: 'Food & Culinary',
     gradient: 'from-orange-500 to-red-500'
+  },
+  {
+    name: 'iLUSTRA',
+    logo: 'images/ilustra.svg',
+    category: 'Tech that fits your life',
+    gradient: 'from-rose-600 to-purple-600'
+  },
+  {
+    name: 'Vhenever',
+    logo: 'images/vhenever.svg',
+    category: 'Making special moments unforgettable',
+    gradient: 'from-orange-500 to-red-500'
   }
 ]
 

@@ -8,6 +8,7 @@ import MetaverseSection from "@/components/metaverse-section";
 import WhyAmez from "@/components/why-amez";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
+import Branches from "@/components/branches";
 
 export default function Page() {
   return (
@@ -21,6 +22,7 @@ export default function Page() {
       <MetaverseSection />
       <WhyAmez />
       <ContactSection />
+      <Branches/>
       <Footer />
     </main>
   );

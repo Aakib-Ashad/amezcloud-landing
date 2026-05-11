@@ -46,6 +46,12 @@ const ventures = [
     category: 'Education',
     gradient: 'from-red-500 to-orange-500'
   },
+    {
+    name: 'Amez Books',
+    logo: 'images/amezbooks.svg',
+    category: 'ERP Solutions',
+    gradient: 'from-red-500 to-orange-500'
+  },
   {
     name: 'Amez Club',
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6-b1Y2o5ijo1lRDTdvZx119tAohDt9m0.jpg',

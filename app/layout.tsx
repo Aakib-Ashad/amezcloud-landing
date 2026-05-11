@@ -3,28 +3,16 @@ import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const geist = Geist({ subsets: ["latin"] });
+const geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: 'Amez Cloud — DigitalNexus Technologies',
-  description: 'Amez Cloud is the centralized hub for all types of services. Software Development, Digital Marketing, E-Commerce, Networking, Hosting and more. Since 2016.',
+  description: 'Amez Cloud provides cutting-edge Metaverse, VR/AR development, Web3 integration, NFT solutions, virtual world creation, and enterprise XR services. Transform your digital presence with immersive technology since 2016.',
   generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
     apple: '/apple-icon.png',
   },
 }

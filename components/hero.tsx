@@ -4,10 +4,10 @@ import { ArrowRight, Play, Shield, Globe, Zap } from "lucide-react";
 import { motion } from "framer-motion";
 
 const stats = [
-  { value: "18+", label: "Subsidiaries", grad: "var(--grad-blue-violet)" },
-  { value: "11+", label: "Pre-built Systems", grad: "var(--grad-violet-pink)" },
+  { value: "20+", label: "Subsidiaries", grad: "var(--grad-blue-violet)" },
+  { value: "25+", label: "Pre-built Systems", grad: "var(--grad-violet-pink)" },
   { value: "2016", label: "Since", grad: "var(--grad-emerald-cyan)" },
-  { value: "100+", label: "Projects Delivered", grad: "var(--grad-orange-amber)" },
+  { value: "3987+", label: "Projects Delivered", grad: "var(--grad-orange-amber)" },
 ];
 
 const trustBadges = [

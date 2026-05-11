@@ -241,8 +241,8 @@ export default function VenturesShowcase() {
           className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6"
         >
           {[
-            { number: '17+', label: 'Active Ventures' },
-            { number: '12', label: 'Industries' },
+            { number: '20+', label: 'Active Ventures' },
+            { number: '25+', label: 'Industries' },
             { number: '100K+', label: 'Customers Served' },
             { number: '2016', label: 'Established' }
           ].map((stat, index) => (

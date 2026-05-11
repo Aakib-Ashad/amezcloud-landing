@@ -2,6 +2,8 @@
 
 import { Twitter, Linkedin, Instagram, Facebook, Youtube } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import Link from "next/link";
 
 const footerLinks = {
   Products: [
@@ -65,13 +67,18 @@ export default function Footer() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
-            <div className="flex items-center gap-2.5 mb-4">
+            <Link href="/" className="flex items-center gap-2.5 mb-4">
               <motion.div
-                whileHover={{ scale: 1.1, rotate: 5 }}
-                className="w-9 h-9 rounded-xl flex items-center justify-center text-white font-bold text-sm"
-                style={{ background: "var(--brand-gradient)" }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="relative w-9 h-9"
               >
-                AC
+                <Image
+                  src="/logo_main.svg"
+                  alt="Amez Cloud"
+                  fill
+                  className="object-contain"
+                />
               </motion.div>
               <div className="flex flex-col leading-none">
                 <span className="font-bold text-white text-base tracking-tight">
@@ -81,7 +88,7 @@ export default function Footer() {
                   DigitalNexus Technologies
                 </span>
               </div>
-            </div>
+            </Link>
             <p className="text-sm text-gray-400 leading-relaxed mb-5 max-w-xs">
               The centralized hub for all types of digital services. Since 2016,
               powering businesses globally.

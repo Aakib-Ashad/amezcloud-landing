@@ -10,10 +10,16 @@ const ventures = [
     category: 'Cloud Services',
     gradient: 'from-cyan-500 to-blue-500'
   },
+    {
+    name: 'Amez City',
+    logo: 'images/amezcity.svg',
+    category: 'Amez Downtown City',
+    gradient: 'from-cyan-500 to-blue-500'
+  },
   {
     name: 'Amez Tower',
     logo: '/images/ameztower_logo.svg',
-    category: 'Amez Downtown City',
+    category: 'Amez Horizon Tower Mall',
     gradient: 'from-cyan-500 to-blue-500'
   },
   {
@@ -38,6 +44,12 @@ const ventures = [
     name: 'Amez University',
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5-OStqXzgzAAxndeon7RdixTzEyY0V3K.jpg',
     category: 'Education',
+    gradient: 'from-red-500 to-orange-500'
+  },
+    {
+    name: 'Amez Books',
+    logo: 'images/amezbooks.svg',
+    category: 'ERP Solutions',
     gradient: 'from-red-500 to-orange-500'
   },
   {
@@ -110,6 +122,18 @@ const ventures = [
     name: 'Firebowl',
     logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/17-DP8pRKf93FBmFoBgCiSSxaCMu0x7JM.jpg',
     category: 'Food & Culinary',
+    gradient: 'from-orange-500 to-red-500'
+  },
+  {
+    name: 'iLUSTRA',
+    logo: 'images/ilustra.svg',
+    category: 'Tech that fits your life',
+    gradient: 'from-rose-600 to-purple-600'
+  },
+  {
+    name: 'Vhenever',
+    logo: 'images/vhenever.svg',
+    category: 'Making special moments unforgettable',
     gradient: 'from-orange-500 to-red-500'
   }
 ]

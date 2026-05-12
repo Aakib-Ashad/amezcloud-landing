@@ -14,11 +14,11 @@ const footerLinks = {
     { label: "Flight Booking", href: "#software" },
   ],
   Subsidiaries: [
-    { label: "Amez Prime", href: "#subsidiaries" },
-    { label: "Amez University", href: "#subsidiaries" },
-    { label: "Amez Wallet", href: "#subsidiaries" },
-    { label: "Amez Club", href: "#subsidiaries" },
-    { label: "Firebowl", href: "#subsidiaries" },
+    { label: "Amez Prime", href: "https://www.amezprime.com/" },
+    { label: "Amez University", href: "https://www.amezuniversity.com/" },
+    { label: "Amez Wallet", href: "https://www.amezwallet.com/" },
+    { label: "Amez Club", href: "https://www.amezclub.com/" },
+    { label: "Firebowl", href: "https://www.firebowl.lk/" },
   ],
   Services: [
     { label: "Digital Marketing", href: "#about" },
@@ -74,7 +74,7 @@ export default function Footer() {
                 className="relative w-9 h-9"
               >
                 <Image
-                  src="/logo_main.svg"
+                  src="/logo_main.png"
                   alt="Amez Cloud"
                   fill
                   className="object-contain"

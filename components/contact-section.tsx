@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { createClient } from "@/lib/supabase/client";
 
 const stagger = {
   hidden: {},
@@ -35,19 +36,217 @@ const infoCards = [
   },
 ];
 
-export default function ContactSection() {
-  const [form, setForm] = useState({ name: "", email: "", service: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
+// All software names from SoftwareShowcase — used as dynamic options
+const allSoftwareNames = [
+  "Single Vendor E-Commerce",
+  "Multi Vendor Marketplace",
+  "B2B Wholesale Platform",
+  "Dropshipping Store",
+  "Freelance Marketplace",
+  "Subscription Box Platform",
+  "ERP System",
+  "CRM & Sales Pipeline",
+  "HRMS & Payroll",
+  "Project Management Suite",
+  "Document Management System",
+  "Accounting & Finance",
+  "Help Desk & Ticketing",
+  "Inventory Management",
+  "Construction Project Management",
+  "Procurement & Sourcing System",
+  "Expense & Travel Management",
+  "Recruitment & ATS Platform",
+  "University LMS",
+  "University Leads CRM",
+  "School Management System",
+  "Online Examination Platform",
+  "E-Learning Marketplace",
+  "Nursery & Kindergarten System",
+  "Skill & Vocational Training Platform",
+  "Hospital Management System",
+  "Clinic Management System",
+  "Pharmacy POS & Management",
+  "Telemedicine Platform",
+  "Dental Clinic Management",
+  "Health Insurance Management",
+  "Flight Booking System",
+  "Hotel & Property Management",
+  "Tour & Travel Agency System",
+  "Hostel & Guesthouse System",
+  "Food Delivery App",
+  "Restaurant POS & Management",
+  "Cloud Kitchen Management",
+  "Cafe & Loyalty System",
+  "Bakery & Confectionery System",
+  "Supermarket System",
+  "Retail POS System",
+  "Fashion & Apparel Management",
+  "Equipment Rental Platform",
+  "Optical Store Management",
+  "Courier Tracking System",
+  "Fleet Management System",
+  "Warehouse Management System",
+  "Ride-Hailing & Taxi App",
+  "Bicycle & Micro-Mobility Rental",
+  "Field Service Management",
+  "Real Estate Portal",
+  "Property Management System",
+  "Co-Working Space Management",
+  "Digital Wallet & Payments",
+  "Microfinance & Loan System",
+  "Payment Gateway Platform",
+  "Stock Trading & Investment Platform",
+  "Subscription Billing Engine",
+  "Car Rental System",
+  "Auto Garage & Service Center",
+  "Used Car Marketplace",
+  "Video Streaming Platform",
+  "Event Ticketing System",
+  "Music Streaming Platform",
+  "Social Network Platform",
+  "News & Media Portal",
+  "Gaming Tournament Platform",
+  "Radio & Podcast Platform",
+  "Gym & Fitness Management",
+  "Spa & Salon Booking",
+  "Sports Club Management",
+  "Yoga & Wellness Studio",
+  "SaaS Admin & Billing Platform",
+  "Cybersecurity Dashboard",
+  "IT Service Management (ITSM)",
+  "IoT Device Management Dashboard",
+  "DevOps & CI/CD Platform",
+  "Low-Code App Builder",
+  "Business Intelligence & Analytics",
+  "Push Notification & Messaging Platform",
+  "Enterprise Password & Secrets Manager",
+  "E-Government Portal",
+  "Land Registry System",
+  "Visitor Management System",
+  "Municipal Tax & Revenue System",
+  "School Transport Management",
+  "Cemetery & Memorial Management",
+  "Marketing Automation Platform",
+  "Affiliate Marketing Platform",
+  "Survey & Feedback Platform",
+  "Influencer Marketing Platform",
+  "Agriculture Management System",
+  "Agri Produce Marketplace",
+  "Legal Practice Management",
+  "Accounting Firm Management",
+  "Print Studio & Order Management",
+];
 
-  const handleSubmit = (e: React.FormEvent) => {
+export default function ContactSection() {
+  const [supabase, setSupabase] = useState<any>(null);
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    service: "",
+    message: "",
+  });
+  const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [isDemoService, setIsDemoService] = useState(false);
+
+  // Initialize Supabase client only on client side
+  useEffect(() => {
+    try {
+      const client = createClient();
+      setSupabase(client);
+    } catch (err: any) {
+      console.error("Failed to initialize Supabase:", err);
+      setError(err.message);
+    }
+  }, []);
+
+  useEffect(() => {
+    // Read from sessionStorage on mount (handles page navigation case)
+    const stored = sessionStorage.getItem("demoService");
+    if (stored) {
+      setForm((prev) => ({ ...prev, service: stored }));
+      setIsDemoService(true);
+      sessionStorage.removeItem("demoService");
+    }
+
+    // Listen for same-page CustomEvent (same-page scroll case)
+    const handler = (e: Event) => {
+      const serviceName = (e as CustomEvent).detail?.service ?? "";
+      if (serviceName) {
+        setForm((prev) => ({ ...prev, service: serviceName }));
+        setIsDemoService(true);
+      }
+    };
+
+    window.addEventListener("demo-request", handler);
+    return () => window.removeEventListener("demo-request", handler);
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    
+    if (!supabase) {
+      setError("Supabase client not initialized. Please check your configuration.");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+
+    try {
+      // Validate input
+      if (!form.name.trim()) throw new Error("Name is required");
+      if (!form.email.trim()) throw new Error("Email is required");
+      if (!form.message.trim()) throw new Error("Message is required");
+
+      // Insert data into contact_enquiries table
+      const { data, error: insertError } = await supabase
+        .from("contact_enquiries")
+        .insert([
+          {
+            name: form.name.trim(),
+            email: form.email.trim(),
+            service_interest: form.service || null,
+            message: form.message.trim(),
+          },
+        ])
+        .select();
+
+      if (insertError) {
+        console.error("Supabase insert error:", insertError);
+        throw new Error(insertError.message);
+      }
+
+      console.log("Enquiry saved:", data);
+      setSubmitted(true);
+      
+      // Reset form after successful submission
+      setForm({
+        name: "",
+        email: "",
+        service: "",
+        message: "",
+      });
+      setIsDemoService(false);
+      
+      // Auto-hide success message after 5 seconds
+      setTimeout(() => {
+        setSubmitted(false);
+      }, 5000);
+      
+    } catch (err: any) {
+      console.error("Form submission error:", err);
+      setError(err.message || "Failed to send message. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <section
       id="contact"
-      className="py-20"
+      className="py-20 scroll-mt-20"
       style={{ background: "linear-gradient(180deg, #f8faff 0%, #fdf4ff 100%)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -116,15 +315,25 @@ export default function ContactSection() {
               variants={fadeUp}
               whileHover={{ scale: 1.02 }}
               className="rounded-2xl p-5 text-white mt-1 relative overflow-hidden"
-              style={{ background: "linear-gradient(135deg, #2563eb 0%, #8b5cf6 50%, #d946ef 100%)" }}
+              style={{
+                background:
+                  "linear-gradient(135deg, #2563eb 0%, #8b5cf6 50%, #d946ef 100%)",
+              }}
             >
               <motion.div
                 className="absolute inset-0 bg-white/5 pointer-events-none"
                 animate={{ x: ["100%", "-120%"] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "linear", repeatDelay: 4 }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  ease: "linear",
+                  repeatDelay: 4,
+                }}
                 style={{ skewX: -20, width: "35%" }}
               />
-              <p className="font-bold text-base mb-1 relative z-10">Free Demo Available</p>
+              <p className="font-bold text-base mb-1 relative z-10">
+                Free Demo Available
+              </p>
               <p className="text-sm text-white/80 leading-relaxed relative z-10">
                 Request a free live demo of any of our pre-built software
                 systems. No commitment required.
@@ -149,7 +358,10 @@ export default function ContactSection() {
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
                   className="rounded-2xl p-8 text-center flex flex-col items-center gap-3 h-full justify-center"
-                  style={{ background: "linear-gradient(135deg, #10b981 0%, #06b6d4 100%)" }}
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #10b981 0%, #06b6d4 100%)",
+                  }}
                 >
                   <motion.div
                     initial={{ scale: 0 }}
@@ -161,7 +373,8 @@ export default function ContactSection() {
                   </motion.div>
                   <p className="font-bold text-white text-xl">Message Sent!</p>
                   <p className="text-sm text-white/80">
-                    Thank you for reaching out. Our team will get back to you within 24 hours.
+                    Thank you for reaching out. Our team will get back to you
+                    within 24 hours.
                   </p>
                 </motion.div>
               ) : (
@@ -173,68 +386,130 @@ export default function ContactSection() {
                   onSubmit={handleSubmit}
                   className="rounded-2xl border border-gray-100 bg-white p-6 flex flex-col gap-4 shadow-sm"
                 >
+                  {/* Error message */}
+                  {error && (
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-3">
+                      <p className="text-sm text-red-600">{error}</p>
+                    </div>
+                  )}
+
                   <div className="grid sm:grid-cols-2 gap-4">
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-xs font-bold text-gray-600">Full Name</label>
+                      <label className="text-xs font-bold text-gray-600">
+                        Full Name *
+                      </label>
                       <input
                         type="text"
                         required
                         placeholder="John Doe"
                         value={form.name}
-                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        onChange={(e) =>
+                          setForm({ ...form, name: e.target.value })
+                        }
                         className="px-3 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition-all"
+                        disabled={loading}
                       />
                     </div>
                     <div className="flex flex-col gap-1.5">
-                      <label className="text-xs font-bold text-gray-600">Email Address</label>
+                      <label className="text-xs font-bold text-gray-600">
+                        Email Address *
+                      </label>
                       <input
                         type="email"
                         required
                         placeholder="john@company.com"
                         value={form.email}
-                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                        onChange={(e) =>
+                          setForm({ ...form, email: e.target.value })
+                        }
                         className="px-3 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition-all"
+                        disabled={loading}
                       />
                     </div>
                   </div>
+
+                  {/* Service Interest dropdown */}
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-gray-600">Service Interest</label>
+                    <label className="text-xs font-bold text-gray-600">
+                      Service Interest
+                    </label>
                     <select
                       value={form.service}
-                      onChange={(e) => setForm({ ...form, service: e.target.value })}
+                      onChange={(e) => {
+                        setForm({ ...form, service: e.target.value });
+                        setIsDemoService(false);
+                      }}
                       className="px-3 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition-all bg-white"
+                      disabled={loading}
                     >
                       <option value="">Select a service...</option>
-                      <option>Software Purchase / Licensing</option>
-                      <option>Custom Software Development</option>
-                      <option>Digital Marketing</option>
-                      <option>E-Commerce Setup</option>
-                      <option>Metaverse / Web3</option>
-                      <option>Education (Amez University)</option>
-                      <option>Fintech (Amez Wallet / Hub)</option>
-                      <option>Other</option>
+
+                      {/* If coming from Request Demo, show the software name as the first selected option */}
+                      {isDemoService && form.service && (
+                        <option value={form.service}>{form.service} — Demo Request</option>
+                      )}
+
+                      {/* Standard service options */}
+                      <optgroup label="General Services">
+                        <option value="Software Purchase / Licensing">Software Purchase / Licensing</option>
+                        <option value="Custom Software Development">Custom Software Development</option>
+                        <option value="Digital Marketing">Digital Marketing</option>
+                        <option value="E-Commerce Setup">E-Commerce Setup</option>
+                        <option value="Metaverse / Web3">Metaverse / Web3</option>
+                        <option value="Education (Amez University)">Education (Amez University)</option>
+                        <option value="Fintech (Amez Wallet / Hub)">Fintech (Amez Wallet / Hub)</option>
+                        <option value="Other">Other</option>
+                      </optgroup>
+
+                      {/* All pre-built software names */}
+                      <optgroup label="Pre-Built Software — Demo Request">
+                        {allSoftwareNames.map((name) => (
+                          <option key={name} value={name}>
+                            {name}
+                          </option>
+                        ))}
+                      </optgroup>
                     </select>
                   </div>
+
                   <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-gray-600">Message</label>
+                    <label className="text-xs font-bold text-gray-600">
+                      Message *
+                    </label>
                     <textarea
                       rows={4}
                       required
                       placeholder="Tell us about your project or question..."
                       value={form.message}
-                      onChange={(e) => setForm({ ...form, message: e.target.value })}
+                      onChange={(e) =>
+                        setForm({ ...form, message: e.target.value })
+                      }
                       className="px-3 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition-all resize-none"
+                      disabled={loading}
                     />
                   </div>
                   <motion.button
                     type="submit"
                     whileHover={{ scale: 1.02, opacity: 0.93 }}
                     whileTap={{ scale: 0.97 }}
-                    className="flex items-center justify-center gap-2 py-3 rounded-xl text-white font-bold text-sm"
-                    style={{ background: "linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)" }}
+                    disabled={loading || !supabase}
+                    className="flex items-center justify-center gap-2 py-3 rounded-xl text-white font-bold text-sm disabled:opacity-70 disabled:cursor-not-allowed"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)",
+                    }}
                   >
-                    <Send className="w-4 h-4" />
-                    Send Message
+                    {loading ? (
+                      <>
+                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        Send Message
+                      </>
+                    )}
                   </motion.button>
                 </motion.form>
               )}

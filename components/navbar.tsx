@@ -33,10 +33,10 @@ const navLinks = [
 
 // Social media URLs (Replace with your actual URLs)
 const socialLinks = {
-  whatsapp: "https://wa.me/1234567890", // Replace with your WhatsApp number
-  instagram: "https://instagram.com/yourusername", // Replace with your Instagram
-  linkedin: "https://linkedin.com/company/yourcompany", // Replace with your LinkedIn
-  facebook: "https://facebook.com/yourpage", // Replace with your Facebook
+  whatsapp: "https://wa.me/94777599590", // Replace with your WhatsApp number
+  instagram: "https://www.instagram.com/amezcloud/", // Replace with your Instagram
+  linkedin: "https://www.linkedin.com/company/amezcloud/", // Replace with your LinkedIn
+  facebook: "https://www.facebook.com/amezcloud", // Replace with your Facebook
 };
 
 export default function Navbar() {
@@ -142,7 +142,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-2 rounded-lg text-gray-500 hover:text-green-500 hover:bg-green-50 transition-all"
+                className="p-2 rounded-lg text-gray-500 hover:text-green-500 hover:bg-green-100 transition-all"
                 aria-label="WhatsApp"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -157,7 +157,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-2 rounded-lg text-gray-500 hover:text-pink-500 hover:bg-pink-50 transition-all"
+                className="p-2 rounded-lg text-gray-500 hover:text-pink-500 hover:bg-pink-100 transition-all"
                 aria-label="Instagram"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -171,7 +171,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-2 rounded-lg text-gray-500 hover:text-blue-600 hover:bg-blue-50 transition-all"
+                className="p-2 rounded-lg text-gray-500 hover:text-blue-600 hover:bg-blue-100 transition-all"
                 aria-label="LinkedIn"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -185,7 +185,7 @@ export default function Navbar() {
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
                 whileTap={{ scale: 0.95 }}
-                className="p-2 rounded-lg text-gray-500 hover:text-blue-500 hover:bg-blue-50 transition-all"
+                className="p-2 rounded-lg text-gray-500 hover:text-blue-500 hover:bg-blue-100 transition-all"
                 aria-label="Facebook"
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

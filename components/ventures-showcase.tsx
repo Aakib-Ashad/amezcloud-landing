@@ -20,10 +20,8 @@ const ventures = [
     name: 'Amez Tower',
     logo: '/images/ameztower_logo.svg',
     category: 'Amez Horizon Tower Mall',
-    logo: '/logo/amez_tower.svg',
-    category: 'Amez Downtown City',
-    gradient: 'from-cyan-500 to-blue-500'
   },
+  
   {
     name: 'Amez Prime',
     logo: '/logo/amez_prime.jpg',
@@ -73,7 +71,7 @@ const ventures = [
     gradient: 'from-emerald-500 to-cyan-500'
   },
   {
-    name: 'Amez Health',
+    name: 'AmezCare Plus',
     logo: '/logo/amez_health.jpg',
     category: 'Healthcare',
     gradient: 'from-pink-500 to-orange-500'

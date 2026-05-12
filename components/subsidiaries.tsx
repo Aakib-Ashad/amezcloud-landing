@@ -2,6 +2,7 @@
 
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const subsidiaries = [
   {
@@ -13,6 +14,7 @@ const subsidiaries = [
       "We specialize in Software Development, Digital Marketing & Advertising, E-Commerce, Networking, Hosting, Photography, Construction Services, E-Trading & Contracting, Graphic Designing, Real Estate and many more.",
     grad: "linear-gradient(135deg, #2563eb 0%, #7c3aed 100%)",
     emoji: "☁️",
+    logo: "/logo/amez_cloud.jpg",
     highlight: true,
   },
   {
@@ -24,6 +26,7 @@ const subsidiaries = [
       "Explore handpicked opportunities in properties, vehicles, marketplace, and career listings. All curated by Amez Prime, your trusted partner for smart investments and growth.",
     grad: "linear-gradient(135deg, #f97316 0%, #f59e0b 100%)",
     emoji: "⭐",
+    logo: "/logo/amez_prime.jpg",
   },
   {
     id: "amez-visuals",
@@ -34,6 +37,7 @@ const subsidiaries = [
       "Capture life's best moments with Amez Visuals. Your reliable partner for professional photography and printing services.",
     grad: "linear-gradient(135deg, #ec4899 0%, #f43f5e 100%)",
     emoji: "📸",
+    logo: "/logo/amez-visuals.jpg",
   },
   {
     id: "amez-university",
@@ -44,6 +48,7 @@ const subsidiaries = [
       "Your gateway to world class education. A comprehensive institution offering online education, on-site learning, and immersive virtual classrooms, along with valuable internship opportunities.",
     grad: "linear-gradient(135deg, #10b981 0%, #06b6d4 100%)",
     emoji: "🎓",
+    logo: "/logo/amez_university.jpg",
   },
   {
     id: "amez-club",
@@ -54,6 +59,7 @@ const subsidiaries = [
       "Our club connects startups, enterprises, global investors, and change makers, fostering collaboration, mentorship, and investment opportunities. We create an ecosystem where innovative ideas thrive.",
     grad: "linear-gradient(135deg, #8b5cf6 0%, #d946ef 100%)",
     emoji: "🤝",
+    logo: "/logo/amez_club.jpg",
   },
   {
     id: "amez-wallet",
@@ -64,6 +70,7 @@ const subsidiaries = [
       "Unlock the future of finance with Amez Wallet. A secure and empowering solution that puts you in charge of your financial journey. With Amez, you gain control over your financial future.",
     grad: "linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%)",
     emoji: "💳",
+    logo: "/logo/amez_wallet.jpg",
   },
   {
     id: "amez-hub",
@@ -74,16 +81,17 @@ const subsidiaries = [
       "Unlock your route to financial prosperity by exploring the smarter approach to saving and investing. Secure your future with ease and intelligence.",
     grad: "linear-gradient(135deg, #6366f1 0%, #2563eb 100%)",
     emoji: "📊",
+    logo: "/logo/amez_hub.jpg",
   },
   {
     id: "amezcare",
     name: "AmezCare Plus",
     tagline: "Asset Protection & Priority Support",
     category: "Insurance & Care",
-    description:
-      "Comprehensive Digital & Physical Asset Protection with Priority Support. Select the ideal AmezCare Plus package tailored to your needs.",
-    grad: "linear-gradient(135deg, #ef4444 0%, #f97316 100%)",
+   description:
+  "Comprehensive Pharmacy & Healthcare Support with Trusted Medical Services. Choose the ideal AmezCare Plus package tailored to your wellness and healthcare needs.",    grad: "linear-gradient(135deg, #ef4444 0%, #f97316 100%)",
     emoji: "🛡️",
+    logo: "/logo/amez_health.jpg", // No logo available
   },
   {
     id: "amez-cards",
@@ -94,6 +102,7 @@ const subsidiaries = [
       "Explore our diverse range of debit cards designed for seamless transactions and enhanced financial control. From everyday purchases to secure online transactions, find the perfect card.",
     grad: "linear-gradient(135deg, #374151 0%, #111827 100%)",
     emoji: "🃏",
+    logo: "/logo/amez_cards.jpg",
   },
   {
     id: "amez-express",
@@ -104,6 +113,7 @@ const subsidiaries = [
       "Explore our diverse range of express delivery and logistics solutions designed for seamless operations and enhanced control over your shipments and deliveries.",
     grad: "linear-gradient(135deg, #f97316 0%, #ef4444 100%)",
     emoji: "🚚",
+    logo: "/logo/amez_express.jpg",
   },
   {
     id: "amez-organic",
@@ -114,6 +124,7 @@ const subsidiaries = [
       "Your online source for exotic and hard to find Spices, Herbals & Organic Foods for Cooking, Baking & Daily Use.",
     grad: "linear-gradient(135deg, #84cc16 0%, #10b981 100%)",
     emoji: "🌿",
+    logo: "/logo/amez_organic.jpg",
   },
   {
     id: "amez-line",
@@ -124,6 +135,7 @@ const subsidiaries = [
       "Discover fashion that blends quality, comfort, and trend-forward design. Amez Line offers a curated collection of clothing and accessories.",
     grad: "linear-gradient(135deg, #d946ef 0%, #ec4899 100%)",
     emoji: "👗",
+    logo: "/logo/amez_line.jpg",
   },
   {
     id: "hitech",
@@ -134,6 +146,7 @@ const subsidiaries = [
       "The Leading Source for All Types of Products and Services. Importers and Distributors of All Kinds of Mobile phones, Accessories, Computer Accessories and CCTV & Camera Accessories.",
     grad: "linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%)",
     emoji: "📱",
+    logo: "/logo/height_tech_marketing.jpg",
   },
   {
     id: "avoqs",
@@ -144,6 +157,7 @@ const subsidiaries = [
       "Built for daily movement and effortless style, AVOQS premium tees combine clean aesthetics with superior comfort — the perfect balance between street and luxury.",
     grad: "linear-gradient(135deg, #44403c 0%, #1c1917 100%)",
     emoji: "👕",
+    logo: "/logo/avoqs.jpg",
   },
   {
     id: "amez-furns",
@@ -154,6 +168,7 @@ const subsidiaries = [
       "We specialize in designing and manufacturing bespoke furniture that combines style, functionality, and quality craftsmanship. From concept to creation, our pieces are tailored to bring your vision to life.",
     grad: "linear-gradient(135deg, #ca8a04 0%, #b45309 100%)",
     emoji: "🛋️",
+    logo: "/logo/amez_furns.jpg",
   },
   {
     id: "firebowl",
@@ -164,6 +179,7 @@ const subsidiaries = [
       "From luxurious hotels and fine dining restaurants to vibrant street food stalls, we offer unforgettable experiences for every taste and occasion.",
     grad: "linear-gradient(135deg, #dc2626 0%, #ea580c 100%)",
     emoji: "🔥",
+    logo: "/logo/firebowl.jpg",
   },
   {
     id: "vhenever",
@@ -174,6 +190,7 @@ const subsidiaries = [
       "Making special moments unforgettable with perfectly timed gift delivery for birthdays, anniversaries, and all your celebrations.",
     grad: "linear-gradient(135deg, #ec4899 0%, #d946ef 100%)",
     emoji: "🎁",
+    logo: "images/vhenever.svg",   
   },
   {
     id: "amez-books",
@@ -184,6 +201,7 @@ const subsidiaries = [
       "A fully functional ERP system designed for businesses of all sizes. Manage your finances, operations, and reporting in one comprehensive platform.",
     grad: "linear-gradient(135deg, #475569 0%, #1e293b 100%)",
     emoji: "📚",
+    logo: "images/amezbooks.svg", 
   },
 ];
 
@@ -255,9 +273,20 @@ export default function Subsidiaries() {
                   <motion.div
                     whileHover={{ scale: 1.15, rotate: -5 }}
                     transition={{ type: "spring", stiffness: 300 }}
-                    className="w-11 h-11 rounded-xl bg-white/25 backdrop-blur-md flex items-center justify-center text-2xl shrink-0 shadow-lg border border-white/30"
+                    className="w-11 h-11 rounded-xl bg-white/25 backdrop-blur-md flex items-center justify-center shrink-0 shadow-lg border border-white/30 overflow-hidden"
                   >
-                    <span className="drop-shadow-md">{sub.emoji}</span>
+                    {sub.logo ? (
+                      <div className="relative w-8 h-8">
+                        <Image
+                          src={sub.logo}
+                          alt={sub.name}
+                          fill
+                          className="object-cover rounded-lg drop-shadow-md"
+                        />
+                      </div>
+                    ) : (
+                      <span className="text-2xl drop-shadow-md">{sub.emoji}</span>
+                    )}
                   </motion.div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
@@ -273,7 +302,7 @@ export default function Subsidiaries() {
                 </div>
 
                 {/* Description */}
-                <p className="text-xs text-white/75 leading-relaxed flex-1">
+                <p className="text-xs text-white/75 leading-relaxed flex-1 line-clamp-3">
                   {sub.description}
                 </p>
 

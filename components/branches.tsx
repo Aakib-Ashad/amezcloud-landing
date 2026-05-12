@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Clock, Building2, Globe, AlertCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Building2, Globe, AlertCircle, Star } from "lucide-react";
 import Image from "next/image";
 
 const branches = [
@@ -13,6 +13,7 @@ const branches = [
     iconBg: "from-blue-500 to-blue-600",
     image: "/newyork.svg",
     mapLink: "https://maps.google.com/?q=169+Madison+Ave+STE+2617+New+York+NY+10016",
+    isMainOffice: false,
   },
   {
     city: "Kandy, Sri Lanka",
@@ -22,6 +23,7 @@ const branches = [
     iconBg: "from-emerald-500 to-emerald-600",
     image: "/kandy.svg",
     mapLink: "https://maps.google.com/?q=Jaffna+Main+Road+Kandy+20000+Sri+Lanka",
+    isMainOffice: true,
   },
   {
     city: "Dubai, UAE",
@@ -31,6 +33,7 @@ const branches = [
     iconBg: "from-amber-500 to-amber-600",
     image: "/dubai.svg",
     mapLink: "https://maps.google.com/?q=Dubai+World+Trade+Centre+Dubai+UAE",
+    isMainOffice: false,
   },
 ];
 
@@ -77,7 +80,7 @@ export default function Branches() {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6" />
         </motion.div>
 
-        {/* Alert Message */}
+        {/* Alert Message - Commented out as in original */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -85,18 +88,7 @@ export default function Branches() {
           transition={{ delay: 0.1, duration: 0.5 }}
           className="max-w-4xl mx-auto mb-12"
         >
-          {/* <div className="bg-amber-50 border-l-4 border-amber-500 rounded-lg p-5 flex gap-4 shadow-sm">
-            <AlertCircle className="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5" />
-            <div>
-              <p className="text-amber-800 leading-relaxed">
-                <span className="font-semibold">📞 High Volume Alert:</span> Currently, we are experiencing a high volume of calls and message requests, which may cause a delay in our response time.
-                <br />
-                <span className="text-amber-700 text-sm block mt-2">
-                  ⏰ Please be assured that we value your inquiry, and we commit to reaching out to you within 24 hours upon receiving your request. We appreciate your understanding and patience.
-                </span>
-              </p>
-            </div>
-          </div> */}
+          {/* Alert message content - kept as commented in original */}
         </motion.div>
 
         {/* Contact Info Cards */}
@@ -194,17 +186,24 @@ export default function Branches() {
                   style={{ background: branch.gradient }}
                 />
                 <div className="relative bg-white rounded-2xl p-6 shadow-lg border border-gray-100 overflow-hidden">
-                  {branch.status === "coming-soon" && (
-                    <div className="absolute top-4 right-4 z-10">
+                  {/* Badges Container */}
+                  <div className="absolute top-4 right-4 z-10 flex flex-col gap-2 items-end">
+                    {branch.status === "coming-soon" && (
                       <span className="px-2 py-1 bg-amber-100 text-amber-700 text-xs font-semibold rounded-full">
                         Coming Soon
                       </span>
-                    </div>
-                  )}
+                    )}
+                    {branch.isMainOffice && (
+                      <span className="px-2 py-1 bg-gradient-to-r from-amber-400 to-amber-500 text-white text-xs font-semibold rounded-full flex items-center gap-1 shadow-md">
+                        <Star className="w-3 h-3 fill-current" />
+                        Main Office
+                      </span>
+                    )}
+                  </div>
                   
-                  {/* SVG Image */}
-                  <div className="flex justify-center mb-4">
-                    <div className="relative w-24 h-24">
+                  {/* SVG Image - Increased size */}
+                  <div className="flex justify-center mb-5">
+                    <div className="relative w-36 h-36">
                       <Image
                         src={branch.image}
                         alt={`${branch.city} office`}

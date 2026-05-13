@@ -2,6 +2,8 @@
 
 import { ArrowRight, Play, Shield, Globe, Zap } from "lucide-react";
 import { motion } from "framer-motion";
+import Image from "next/image";
+import BrandsLogoTicker from "./BrandsLogoTicker"; // adjust path if needed
 
 const stats = [
   { value: "20+", label: "Subsidiaries", grad: "var(--grad-blue-violet)" },
@@ -16,42 +18,42 @@ const trustBadges = [
   { icon: Zap, text: "Lightning-fast Delivery", color: "#f97316" },
 ];
 
+// 5 regular cards — 18+ Brands handled separately below
 const featureCards = [
   {
     title: "Software Hub",
     desc: "11 pre-built systems ready to deploy",
     icon: "🗂️",
+    iconImage: "/logo/amez_cloud.jpg",
     grad: "var(--grad-blue-violet)",
   },
   {
     title: "Amez University",
     desc: "World-class online & on-site education",
     icon: "🎓",
+    iconImage: "/logo/amez_university.jpg",
     grad: "var(--grad-emerald-cyan)",
   },
   {
     title: "Amez Wallet",
     desc: "Secure fintech for your financial future",
     icon: "💳",
+    iconImage: "/logo/amez_wallet.jpg",
     grad: "var(--grad-cyan-blue)",
   },
   {
     title: "Amez Club",
     desc: "Global startup & investor ecosystem",
     icon: "🌐",
+    iconImage: "/logo/amez_club.jpg",
     grad: "var(--grad-violet-pink)",
   },
   {
-    title: "Digital Marketing",
-    desc: "Advertising & growth campaigns",
+    title: "Avoqs",
+    desc: "Street Meets Luxury & Comfort",
     icon: "📈",
+    iconImage: "/logo/avoqs.jpg",
     grad: "var(--grad-orange-amber)",
-  },
-  {
-    title: "18+ Brands",
-    desc: "Subsidiaries across every industry",
-    icon: "🏢",
-    grad: "var(--grad-fuchsia-violet)",
   },
 ];
 
@@ -95,13 +97,9 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-          >
-            {/* Badge */}
+
+          {/* ── Left Content ── */}
+          <motion.div variants={containerVariants} initial="hidden" animate="visible">
             <motion.div variants={fadeUp}>
               <div
                 className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold mb-6 text-white"
@@ -134,20 +132,15 @@ export default function Hero() {
               platform. Everything your business needs, in one place.
             </motion.p>
 
-            {/* Trust Badges */}
             <motion.div variants={fadeUp} className="flex flex-wrap gap-4 mb-10">
               {trustBadges.map(({ icon: Icon, text, color }) => (
-                <div
-                  key={text}
-                  className="flex items-center gap-1.5 text-sm text-gray-600 font-medium"
-                >
+                <div key={text} className="flex items-center gap-1.5 text-sm text-gray-600 font-medium">
                   <Icon className="w-4 h-4" style={{ color }} />
                   {text}
                 </div>
               ))}
             </motion.div>
 
-            {/* CTAs */}
             <motion.div variants={fadeUp} className="flex flex-wrap gap-3">
               <motion.a
                 href="#software"
@@ -171,14 +164,15 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* Right — Feature Card Grid */}
+          {/* ── Right — Feature Card Grid ── */}
           <motion.div
             className="grid grid-cols-2 gap-4"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
-            {featureCards.map(({ title, desc, icon, grad }, i) => (
+            {/* 5 regular cards */}
+            {featureCards.map(({ title, desc, icon, iconImage, grad }, i) => (
               <motion.div
                 key={title}
                 variants={fadeUp}
@@ -188,15 +182,48 @@ export default function Hero() {
                 className="rounded-2xl p-5 flex flex-col gap-2.5 cursor-default relative overflow-hidden backdrop-blur-sm border border-white/20 shadow-xl"
                 style={{ background: grad }}
               >
-                {/* Glass morphism layers */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-white/5 to-transparent rounded-2xl" />
                 <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
                 <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/10 to-transparent rounded-b-2xl" />
-                <span className="text-2xl relative z-10 drop-shadow-lg">{icon}</span>
+
+                <div className="relative z-10">
+                  {iconImage ? (
+                    <div className="relative w-9 h-9 rounded-lg overflow-hidden shadow-md">
+                      <Image src={iconImage} alt={title} fill className="object-cover" />
+                    </div>
+                  ) : (
+                    <span className="text-2xl drop-shadow-md">{icon}</span>
+                  )}
+                </div>
+
                 <p className="text-sm font-bold text-white relative z-10 text-balance drop-shadow-md">{title}</p>
                 <p className="text-xs text-white/90 leading-relaxed relative z-10 drop-shadow-sm">{desc}</p>
               </motion.div>
             ))}
+
+            {/* ── 18+ Brands card — carousel, 1 logo at a time, every 10s ── */}
+            <motion.div
+              variants={fadeUp}
+              custom={5}
+              whileHover={{ y: -6, scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 300 }}
+              className="rounded-2xl p-5 flex flex-col gap-2.5 cursor-default relative overflow-hidden backdrop-blur-sm border border-white/20 shadow-xl"
+              style={{ background: "var(--grad-fuchsia-violet)" }}
+            >
+              <div className="absolute inset-0 bg-gradient-to-br from-white/15 via-white/5 to-transparent rounded-2xl" />
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-black/10 to-transparent rounded-b-2xl" />
+
+              {/* Carousel ticker */}
+              <div className="relative z-10">
+                <BrandsLogoTicker />
+              </div>
+
+              <p className="text-sm font-bold text-white relative z-10 drop-shadow-md">18+ Brands</p>
+              <p className="text-xs text-white/90 leading-relaxed relative z-10 drop-shadow-sm">
+                Subsidiaries across every industry
+              </p>
+            </motion.div>
           </motion.div>
         </div>
 

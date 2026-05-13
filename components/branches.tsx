@@ -1,36 +1,51 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Clock, Building2, Globe, AlertCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Clock, Building2, Globe, AlertCircle, Star } from "lucide-react";
 import Image from "next/image";
 
 const branches = [
   {
-    city: "New York, USA",
+    city: "Amez Cloud L.L.C",
+    subCity: "New York, USA",
     address: "169 Madison Ave STE 2617\nNew York, NY 10016",
     status: "active",
     gradient: "linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)",
     iconBg: "from-blue-500 to-blue-600",
     image: "/newyork.svg",
     mapLink: "https://maps.google.com/?q=169+Madison+Ave+STE+2617+New+York+NY+10016",
+    isMainOffice: false,
+    hoverColor: "from-blue-500/40 to-blue-600/40", // Increased from 20 to 40
+    borderHover: "group-hover:border-blue-500",
+    glowIntensity: "group-hover:shadow-blue-500/30", // Added glow shadow
   },
   {
-    city: "Kandy, Sri Lanka",
+    city: "Amez Cloud",
+    subCity: "Kandy, Sri Lanka",
     address: "Jaffna Main Road\nKandy, 20000",
     status: "active",
     gradient: "linear-gradient(135deg, #059669 0%, #10b981 100%)",
     iconBg: "from-emerald-500 to-emerald-600",
     image: "/kandy.svg",
     mapLink: "https://maps.google.com/?q=Jaffna+Main+Road+Kandy+20000+Sri+Lanka",
+    isMainOffice: true,
+    hoverColor: "from-emerald-500/40 to-emerald-600/40", // Increased from 20 to 40
+    borderHover: "group-hover:border-emerald-500",
+    glowIntensity: "group-hover:shadow-emerald-500/30",
   },
   {
-    city: "Dubai, UAE",
-    address: "Dubai World Trade Centre\nAbout to Open...",
+    city: "Amez Tower",
+    subCity: "Katugasthota, Sri Lanka",
+    address: "Katugasthota\nSri Lanka",
     status: "coming-soon",
     gradient: "linear-gradient(135deg, #d97706 0%, #f59e0b 100%)",
     iconBg: "from-amber-500 to-amber-600",
     image: "/dubai.svg",
-    mapLink: "https://maps.google.com/?q=Dubai+World+Trade+Centre+Dubai+UAE",
+    mapLink: "https://maps.google.com/?q=Katugasthota+Sri+Lanka",
+    isMainOffice: false,
+    hoverColor: "from-amber-500/40 to-amber-600/40", // Increased from 20 to 40
+    borderHover: "group-hover:border-amber-500",
+    glowIntensity: "group-hover:shadow-amber-500/30",
   },
 ];
 
@@ -77,31 +92,9 @@ export default function Branches() {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto rounded-full mb-6" />
         </motion.div>
 
-        {/* Alert Message */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.5 }}
-          className="max-w-4xl mx-auto mb-12"
-        >
-          {/* <div className="bg-amber-50 border-l-4 border-amber-500 rounded-lg p-5 flex gap-4 shadow-sm">
-            <AlertCircle className="w-6 h-6 text-amber-500 flex-shrink-0 mt-0.5" />
-            <div>
-              <p className="text-amber-800 leading-relaxed">
-                <span className="font-semibold">📞 High Volume Alert:</span> Currently, we are experiencing a high volume of calls and message requests, which may cause a delay in our response time.
-                <br />
-                <span className="text-amber-700 text-sm block mt-2">
-                  ⏰ Please be assured that we value your inquiry, and we commit to reaching out to you within 24 hours upon receiving your request. We appreciate your understanding and patience.
-                </span>
-              </p>
-            </div>
-          </div> */}
-        </motion.div>
-
         {/* Contact Info Cards */}
         <motion.div
-          className="grid md:grid-cols-3 gap-6 mb-16 max-w-4xl mx-auto"
+          className="grid md:grid-cols-3 gap-6 mb-16 max-w-7xl mx-auto"
           variants={stagger}
           initial="hidden"
           whileInView="visible"
@@ -189,40 +182,64 @@ export default function Branches() {
                 className="relative group cursor-pointer"
                 onClick={() => branch.status === "active" && window.open(branch.mapLink, "_blank")}
               >
+                {/* Hover gradient effect with increased intensity */}
                 <div
-                  className="absolute -inset-0.5 bg-gradient-to-r opacity-0 group-hover:opacity-100 transition duration-300 rounded-2xl blur"
-                  style={{ background: branch.gradient }}
+                  className={`absolute -inset-1 bg-gradient-to-r ${branch.hoverColor} rounded-2xl blur-lg opacity-0 group-hover:opacity-100 transition duration-500`}
                 />
-                <div className="relative bg-white rounded-2xl p-6 shadow-lg border border-gray-100 overflow-hidden">
-                  {branch.status === "coming-soon" && (
-                    <div className="absolute top-4 right-4 z-10">
-                      <span className="px-2 py-1 bg-amber-100 text-amber-700 text-xs font-semibold rounded-full">
+
+                <div className={`relative bg-white rounded-2xl p-6 shadow-lg border-2 border-gray-100 overflow-hidden transition-all duration-300 group-hover:shadow-2xl ${branch.borderHover} ${branch.glowIntensity}`}>
+                  {/* Badges Container */}
+                  <div className="absolute top-4 right-4 z-10 flex flex-col gap-2 items-end">
+                    {branch.status === "coming-soon" && (
+                      <span className="px-2 py-1 bg-amber-100 text-amber-700 text-xs font-semibold rounded-full shadow-sm">
                         Coming Soon
                       </span>
-                    </div>
-                  )}
-                  
-                  {/* SVG Image */}
-                  <div className="flex justify-center mb-4">
-                    <div className="relative w-24 h-24">
+                    )}
+                    {branch.isMainOffice && (
+                      <span className="px-2 py-1 bg-gradient-to-r from-amber-400 to-amber-500 text-white text-xs font-semibold rounded-full flex items-center gap-1 shadow-md">
+                        <Star className="w-3 h-3 fill-current" />
+                        Main Office
+                      </span>
+                    )}
+                  </div>
+
+                  {/* SVG Image with brand-specific glow on hover */}
+                  <div className="flex justify-center mb-5">
+                    <div className="relative w-36 h-36 transition-all duration-300 group-hover:scale-110">
                       <Image
                         src={branch.image}
                         alt={`${branch.city} office`}
                         fill
-                        className="object-contain"
+                        className="object-contain transition-opacity duration-300"
                       />
                     </div>
                   </div>
-                  
+
                   <div className="text-center">
-                    <h4 className="font-bold text-gray-900 text-lg mb-2">{branch.city}</h4>
-                    <p className="text-sm text-gray-500 whitespace-pre-line leading-relaxed">
+                    <h4 className={`font-bold text-gray-900 text-lg mb-1 transition-all duration-300 ${branch.city === "Amez Cloud L.L.C" ? "group-hover:text-blue-600 group-hover:scale-105" :
+                        branch.city === "Amez Cloud" ? "group-hover:text-emerald-600 group-hover:scale-105" :
+                          "group-hover:text-amber-600 group-hover:scale-105"
+                      }`}>
+                      {branch.city}
+                    </h4>
+                    <p className={`text-sm font-semibold mb-2 transition-all duration-300 ${branch.city === "Amez Cloud L.L.C" ? "text-blue-600 group-hover:text-blue-700" :
+                        branch.city === "Amez Cloud" ? "text-emerald-600 group-hover:text-emerald-700" :
+                          "text-amber-600 group-hover:text-amber-700"
+                      }`}>
+                      {branch.subCity}
+                    </p>
+                    <p className="text-sm text-gray-500 whitespace-pre-line leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
                       {branch.address}
                     </p>
-                    {branch.status === "active" && (
+                    {branch.status === "active" ? (
                       <div className="mt-3 inline-flex items-center gap-1 text-xs text-blue-500 group-hover:text-blue-600 transition-colors">
-                        <MapPin className="w-3 h-3" />
-                        <span>View on Map</span>
+                        {/* <MapPin className="w-3 h-3" />
+                        <span>View on Map</span> */}
+                      </div>
+                    ) : (
+                      <div className="mt-3 inline-flex items-center gap-1 text-xs text-amber-600">
+                        {/* <Clock className="w-3 h-3" />
+                        <span>Opening Soon</span> */}
                       </div>
                     )}
                   </div>
@@ -243,7 +260,7 @@ export default function Branches() {
           <div
             className="absolute inset-0"
             style={{
-              background: "url('https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=1600&h=400&fit=crop')",
+              background: "url('/bground.jpg')",
               backgroundSize: "cover",
               backgroundPosition: "center",
               filter: "brightness(0.7)",
@@ -261,7 +278,7 @@ export default function Branches() {
               Global Reach, Local Expertise
             </h3>
             <p className="text-white/90 max-w-2xl mx-auto text-base leading-relaxed">
-              With offices in USA, Sri Lanka, and soon in UAE, we serve clients worldwide
+              With offices in USA, Sri Lanka, we serve clients worldwide
               with cutting-edge technology solutions.
             </p>
           </div>

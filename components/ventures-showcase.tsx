@@ -6,7 +6,7 @@ import Image from 'next/image'
 const ventures = [
   {
     name: 'Amez Cloud',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/1-w6mDaMBgvXUddHhnvc0HlcMIz49IUk.jpg',
+    logo: '/logo/amez_cloud.jpg',
     category: 'Cloud Services',
     gradient: 'from-cyan-500 to-blue-500'
   },
@@ -20,29 +20,29 @@ const ventures = [
     name: 'Amez Tower',
     logo: '/images/ameztower_logo.svg',
     category: 'Amez Horizon Tower Mall',
-    gradient: 'from-cyan-500 to-blue-500'
   },
+  
   {
     name: 'Amez Prime',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/2-tIBoXKs1Y48aDMGF8cHPjbCBFNzMO7.jpg',
+    logo: '/logo/amez_prime.jpg',
     category: 'Real Estate Hub',
     gradient: 'from-blue-500 to-violet-500'
   },
   {
     name: 'Amez Visuals',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/3-mJaVhq66WcaGrgJiEivWAQfEpR405B.jpg',
+    logo: '/logo/amez-visuals.jpg',
     category: 'Media & Entertainment',
     gradient: 'from-orange-400 to-pink-500'
   },
   {
     name: 'Amez Freelance',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/4-YtJyeEOQiyNqAgX7hWBVzXKufCOAhF.jpg',
+    logo: '/logo/amez_freelance.jpg',
     category: 'Freelancers Hub',
     gradient: 'from-cyan-400 to-pink-500'
   },
   {
     name: 'Amez University',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/5-OStqXzgzAAxndeon7RdixTzEyY0V3K.jpg',
+    logo: '/logo/amez_university.jpg',
     category: 'Education',
     gradient: 'from-red-500 to-orange-500'
   },
@@ -54,73 +54,73 @@ const ventures = [
   },
   {
     name: 'Amez Club',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/6-b1Y2o5ijo1lRDTdvZx119tAohDt9m0.jpg',
+    logo: '/logo/amez_club.jpg',
     category: 'Membership & Loyalty',
     gradient: 'from-amber-500 to-yellow-600'
   },
   {
     name: 'Amez Wallet',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/7-iyKdxeYL9T4d6XuQsxUL39WyPYxs2J.jpg',
+    logo: '/logo/amez_wallet.jpg',
     category: 'FinTech',
     gradient: 'from-violet-500 to-fuchsia-500'
   },
   {
     name: 'Amez Hub',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/8-kZvmNtukMR0KraaLcyxPTm4cjRp2E3.jpg',
+    logo: '/logo/amez_hub.jpg',
     category: 'Investment & Finance',
     gradient: 'from-emerald-500 to-cyan-500'
   },
   {
-    name: 'Amez Health',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/9-rlo3BXE7s7PcN4bI09dxs3rgaW7XQ8.jpg',
+    name: 'AmezCare Plus',
+    logo: '/logo/amez_health.jpg',
     category: 'Healthcare',
     gradient: 'from-pink-500 to-orange-500'
   },
   {
     name: 'Amez Cards',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/10-BVNpE11ISs2S4MQOAAx0sSLF7Oj9eu.jpg',
+    logo: '/logo/amez_cards.jpg',
     category: 'Payment Solutions',
     gradient: 'from-indigo-500 to-purple-600'
   },
   {
     name: 'Amez Express',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/11-MmtovOM2Hx2FdWsYdrmyIphlN3tPml.jpg',
+    logo: '/logo/amez_express.jpg',
     category: 'E-Commerce',
     gradient: 'from-green-500 to-emerald-600'
   },
   {
     name: 'Amez Organic',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/12-tXwRKpfxykUzoqlFZbs4XCKMj4LI1C.jpg',
+    logo: '/logo/amez_organic.jpg',
     category: 'Organic Products',
     gradient: 'from-green-600 to-lime-500'
   },
   {
     name: 'Amez Line',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/13-NliIzllaOXqfV2ZMAh8s1yjOQLOO0N.jpg',
+    logo: '/logo/amez_line.jpg',
     category: 'Crafts & Design',
     gradient: 'from-indigo-600 to-violet-500'
   },
   {
     name: 'Hight-Tech Marketing',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/14-VYGDI334gu78VxCZoLNpfCjDiY7Wjc.jpg',
+    logo: '/logo/height_tech_marketing.jpg',
     category: 'Electrical & Electronics',
     gradient: 'from-blue-600 to-red-500'
   },
   {
     name: 'Avoqs',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/15-ZFkUDPs83bmOQVzeXMzNS1VqJqT4kY.jpg',
+    logo: '/logo/avoqs.jpg',
     category: 'Fashion & Lifestyle',
     gradient: 'from-gray-800 to-gray-600'
   },
   {
     name: 'Amez Furns',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/16-6QPTlxMMmVDVkWRvxR2V7sy5CiTddO.jpg',
+    logo: '/logo/amez_furns.jpg',
     category: 'Furnitures Hub',
     gradient: 'from-rose-600 to-purple-600'
   },
   {
     name: 'Firebowl',
-    logo: 'https://hebbkx1anhila5yf.public.blob.vercel-storage.com/17-DP8pRKf93FBmFoBgCiSSxaCMu0x7JM.jpg',
+    logo: '/logo/firebowl.jpg',
     category: 'Food & Culinary',
     gradient: 'from-orange-500 to-red-500'
   },

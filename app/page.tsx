@@ -9,6 +9,8 @@ import WhyAmez from "@/components/why-amez";
 import ContactSection from "@/components/contact-section";
 import Footer from "@/components/footer";
 import Branches from "@/components/branches";
+import Aspirations from "@/components/aspirations";
+import Career from "@/components/career";
 
 export default function Page() {
   return (
@@ -22,6 +24,8 @@ export default function Page() {
       <MetaverseSection />
       <WhyAmez />
       <ContactSection />
+      <Aspirations/>
+      <Career/>
       <Branches/>
       <Footer />
     </main>

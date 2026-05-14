@@ -24,36 +24,38 @@ const featureCards = [
     title: "Software Hub",
     desc: "11 pre-built systems ready to deploy",
     icon: "🗂️",
-    iconImage: "/logo/amez_cloud.jpg",
-    grad: "var(--grad-blue-violet)",
+    iconImage: "/bglogo/amezcloud.svg",
+     grad: "var(--grad-orange-amber)",
   },
   {
     title: "Amez University",
     desc: "World-class online & on-site education",
     icon: "🎓",
-    iconImage: "/logo/amez_university.jpg",
-    grad: "var(--grad-emerald-cyan)",
+    iconImage: "/bglogo/amez_university.png",
+     grad: "var(--grad-blue-violet)",
+   
   },
   {
     title: "Amez Wallet",
     desc: "Secure fintech for your financial future",
     icon: "💳",
-    iconImage: "/logo/amez_wallet.jpg",
+    iconImage: "/bglogo/amez_wallet.svg",
     grad: "var(--grad-cyan-blue)",
   },
   {
     title: "Amez Club",
     desc: "Global startup & investor ecosystem",
     icon: "🌐",
-    iconImage: "/logo/amez_club.jpg",
-    grad: "var(--grad-violet-pink)",
+    iconImage: "/bglogo/amez_club.svg",
+     grad: "var(--grad-emerald-cyan)",
+
   },
   {
     title: "Avoqs",
     desc: "Street Meets Luxury & Comfort",
     icon: "📈",
-    iconImage: "/logo/avoqs.jpg",
-    grad: "var(--grad-orange-amber)",
+    iconImage: "/bglogo/avoqs.png",
+      grad: "var(--grad-violet-pink)",
   },
 ];
 

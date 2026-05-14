@@ -175,7 +175,7 @@ export default function Footer() {
           transition={{ duration: 0.6, delay: 0.2 }}
         >
           <p className="text-xs text-gray-500">
-            &copy; {new Date().getFullYear()} Amez Cloud — DigitalNexus Technologies. All rights reserved. Est. 2016.
+            &copy; {new Date().getFullYear()} Amez Cloud - DigitalNexus Technologies. All rights reserved. Est. 2016.
           </p>
           <div className="flex items-center gap-1.5">
             <motion.span

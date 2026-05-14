@@ -37,6 +37,8 @@ import Image from "next/image";
 
 const jobCategories = ["All", "Engineering", "Design", "Marketing", "Product", "Operations"];
 
+const currentYear = new Date().getFullYear();
+
 const jobOpenings = [
   {
     id: 1,
@@ -421,14 +423,17 @@ export default function CareersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-2.5">
-              <motion.div
-                whileHover={{ scale: 1.08, rotate: 3 }}
-                className="w-8 h-8 rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-md"
-                style={{ background: "var(--brand-gradient)" }}
-              >
-                AC
-              </motion.div>
+            <motion.div whileHover={{ scale: 1.08, rotate: 3 }}>
+  <Image
+    src="/icon.png"
+    alt="Amez Cloud"
+    width={32}
+    height={32}
+    className="rounded-lg shadow-md"
+  />
+</motion.div>
               <div className="flex flex-col leading-none">
+                
                 <span className="font-bold text-gray-900 text-base">Amez Cloud</span>
                 <span className="text-[10px] text-gray-400 font-medium">
                   DigitalNexus Technologies
@@ -629,11 +634,10 @@ export default function CareersPage() {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setSelectedCategory(cat)}
-                  className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${
-                    selectedCategory === cat
+                  className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${selectedCategory === cat
                       ? "text-white shadow-lg"
                       : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                  }`}
+                    }`}
                   style={
                     selectedCategory === cat
                       ? { background: "var(--brand-gradient)" }
@@ -1094,7 +1098,7 @@ export default function CareersPage() {
       <footer className="py-12 px-4 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto text-center">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <div
+            {/* <div
               className="w-10 h-10 rounded-lg flex items-center justify-center font-bold shadow-lg"
               style={{ background: "var(--brand-gradient)" }}
             >
@@ -1103,11 +1107,23 @@ export default function CareersPage() {
             <div className="text-left">
               <div className="font-bold text-lg">Amez Cloud</div>
               <div className="text-xs text-gray-400">DigitalNexus Technologies</div>
-            </div>
+            </div> */}
           </div>
-          <p className="text-gray-400 text-sm mb-6">
-            Building the digital future since 2016
-          </p>
+          <div className="flex flex-col items-center mb-6">
+            <Image
+              src="/amezcloud-light.svg"
+              alt="Amez Cloud Logo"
+              width={160}
+              height={50}
+              className="h-auto mb-4"
+              style={{ maxWidth: "160px" }}
+              priority
+            />
+
+            <p className="text-gray-400 text-sm">
+              Building the digital future since 2016
+            </p>
+          </div>
           <div className="flex flex-wrap gap-6 justify-center text-sm text-gray-400">
             <Link href="/" className="hover:text-white transition-colors">
               Home
@@ -1126,7 +1142,7 @@ export default function CareersPage() {
             </a>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-xs text-gray-500">
-            © 2026 Amez Cloud · DigitalNexus Technologies · All rights reserved
+            © {currentYear} Amez Cloud - DigitalNexus Technologies · All rights reserved
           </div>
         </div>
       </footer>

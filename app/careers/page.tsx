@@ -423,17 +423,17 @@ export default function CareersPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-2.5">
-              <motion.div whileHover={{ scale: 1.08, rotate: 3 }}>
-                <Image
-                  src="/icon.png"
-                  alt="Amez Cloud"
-                  width={32}
-                  height={32}
-                  className="rounded-lg shadow-md"
-                />
-              </motion.div>
+            <motion.div whileHover={{ scale: 1.08, rotate: 3 }}>
+  <Image
+    src="/icon.png"
+    alt="Amez Cloud"
+    width={32}
+    height={32}
+    className="rounded-lg shadow-md"
+  />
+</motion.div>
               <div className="flex flex-col leading-none">
-
+                
                 <span className="font-bold text-gray-900 text-base">Amez Cloud</span>
                 <span className="text-[10px] text-gray-400 font-medium">
                   DigitalNexus Technologies
@@ -635,8 +635,8 @@ export default function CareersPage() {
                   whileTap={{ scale: 0.98 }}
                   onClick={() => setSelectedCategory(cat)}
                   className={`px-5 py-2.5 rounded-xl text-sm font-semibold transition-all ${selectedCategory === cat
-                    ? "text-white shadow-lg"
-                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                      ? "text-white shadow-lg"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                     }`}
                   style={
                     selectedCategory === cat

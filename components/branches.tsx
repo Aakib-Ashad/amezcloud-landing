@@ -13,8 +13,8 @@ const branches = [
     gradient: "linear-gradient(135deg, #2563eb 0%, #3b82f6 100%)",
     iconBg: "from-blue-500 to-blue-600",
     image: "/newyork.svg",
-    mapLink: "https://maps.google.com/?q=169+Madison+Ave+STE+2617+New+York+NY+10016",
-    isMainOffice: false,
+    // mapLink: "https://maps.google.com/?q=169+Madison+Ave+STE+2617+New+York+NY+10016",
+    isMainOffice: true,
     hoverColor: "from-blue-500/40 to-blue-600/40",
     borderHover: "group-hover:border-blue-500",
     glowIntensity: "group-hover:shadow-blue-500/30",
@@ -27,7 +27,7 @@ const branches = [
     gradient: "linear-gradient(135deg, #059669 0%, #10b981 100%)",
     iconBg: "from-emerald-500 to-emerald-600",
     image: "/kandy.svg",
-    mapLink: "https://maps.google.com/?q=Jaffna+Main+Road+Kandy+20000+Sri+Lanka",
+    // mapLink: "https://maps.google.com/?q=Jaffna+Main+Road+Kandy+20000+Sri+Lanka",
     isMainOffice: true,
     hoverColor: "from-emerald-500/40 to-emerald-600/40",
     borderHover: "group-hover:border-emerald-500",
@@ -41,7 +41,7 @@ const branches = [
     gradient: "linear-gradient(135deg, #d97706 0%, #f59e0b 100%)",
     iconBg: "from-amber-500 to-amber-600",
     image: "/dubai.svg",
-    mapLink: "https://maps.google.com/?q=Katugasthota+Sri+Lanka",
+    // mapLink: "https://maps.google.com/?q=Katugasthota+Sri+Lanka",
     isMainOffice: false,
     hoverColor: "from-amber-500/40 to-amber-600/40",
     borderHover: "group-hover:border-amber-500",
@@ -202,7 +202,7 @@ export default function Branches() {
                     {branch.isMainOffice && (
                       <span className="px-2 py-1 bg-gradient-to-r from-amber-400 to-amber-500 text-white text-xs font-semibold rounded-full flex items-center gap-1 shadow-md">
                         <Star className="w-3 h-3 fill-current" />
-                        Main Office
+                        Head Office
                       </span>
                     )}
                   </div>

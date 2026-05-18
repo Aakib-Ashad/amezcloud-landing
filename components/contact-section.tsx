@@ -246,43 +246,43 @@ export default function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 scroll-mt-20"
+      className="py-12 sm:py-20 scroll-mt-20"
       style={{ background: "linear-gradient(180deg, #f8faff 0%, #fdf4ff 100%)" }}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <motion.div
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.4 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         >
           <div
-            className="inline-block px-4 py-1.5 rounded-full text-xs font-bold mb-4 text-white"
+            className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs font-bold mb-3 sm:mb-4 text-white"
             style={{ background: "var(--grad-cyan-blue)" }}
           >
             Get In Touch
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4 text-balance">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-3 sm:mb-4 text-balance px-2">
             Let&apos;s Build Something{" "}
             <span
-              className="bg-clip-text text-transparent"
+              className="bg-clip-text text-transparent block sm:inline"
               style={{ backgroundImage: "var(--brand-gradient)" }}
             >
               Great Together
             </span>
           </h2>
-          <p className="text-gray-500 max-w-xl mx-auto text-base leading-relaxed">
+          <p className="text-gray-500 max-w-xl mx-auto text-sm sm:text-base leading-relaxed px-4">
             Ready to get started or have a question? Our team is here to help
             you find the perfect solution for your business.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-5 gap-8">
-          {/* Info */}
+        <div className="flex flex-col lg:grid lg:grid-cols-5 gap-6 sm:gap-8">
+          {/* Info - Mobile optimized */}
           <motion.div
-            className="lg:col-span-2 flex flex-col gap-4"
+            className="lg:col-span-2 flex flex-col gap-3 sm:gap-4 order-2 lg:order-1"
             variants={stagger}
             initial="hidden"
             whileInView="visible"
@@ -294,27 +294,29 @@ export default function ContactSection() {
                 variants={fadeUp}
                 whileHover={{ x: 4, scale: 1.02 }}
                 transition={{ type: "spring", stiffness: 280 }}
-                className="flex items-start gap-3 p-4 rounded-2xl overflow-hidden relative"
+                className="flex items-start gap-3 p-3 sm:p-4 rounded-2xl overflow-hidden relative"
                 style={{ background: grad }}
               >
                 <div className="absolute inset-0 bg-black/5" />
-                <div className="w-9 h-9 bg-white/25 rounded-xl flex items-center justify-center shrink-0 relative z-10">
-                  <Icon className="w-4 h-4 text-white" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 bg-white/25 rounded-xl flex items-center justify-center shrink-0 relative z-10">
+                  <Icon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white" />
                 </div>
                 <div className="relative z-10">
-                  <p className="text-xs font-bold text-white/70 uppercase tracking-wider">
+                  <p className="text-[10px] sm:text-xs font-bold text-white/70 uppercase tracking-wider">
                     {label}
                   </p>
-                  <p className="text-sm font-semibold text-white mt-0.5">{value}</p>
+                  <p className="text-xs sm:text-sm font-semibold text-white mt-0.5 break-words">
+                    {value}
+                  </p>
                 </div>
               </motion.div>
             ))}
 
-            {/* Free demo card */}
+            {/* Free demo card - Mobile optimized */}
             <motion.div
               variants={fadeUp}
               whileHover={{ scale: 1.02 }}
-              className="rounded-2xl p-5 text-white mt-1 relative overflow-hidden"
+              className="rounded-2xl p-4 sm:p-5 text-white mt-1 relative overflow-hidden"
               style={{
                 background:
                   "linear-gradient(135deg, #2563eb 0%, #8b5cf6 50%, #d946ef 100%)",
@@ -331,19 +333,19 @@ export default function ContactSection() {
                 }}
                 style={{ skewX: -20, width: "35%" }}
               />
-              <p className="font-bold text-base mb-1 relative z-10">
+              <p className="font-bold text-sm sm:text-base mb-1 relative z-10">
                 Free Demo Available
               </p>
-              <p className="text-sm text-white/80 leading-relaxed relative z-10">
+              <p className="text-xs sm:text-sm text-white/80 leading-relaxed relative z-10">
                 Request a free live demo of any of our pre-built software
                 systems. No commitment required.
               </p>
             </motion.div>
           </motion.div>
 
-          {/* Form */}
+          {/* Form - Mobile optimized */}
           <motion.div
-            className="lg:col-span-3"
+            className="lg:col-span-3 order-1 lg:order-2"
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.2 }}
@@ -357,7 +359,7 @@ export default function ContactSection() {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.9 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="rounded-2xl p-8 text-center flex flex-col items-center gap-3 h-full justify-center"
+                  className="rounded-2xl p-6 sm:p-8 text-center flex flex-col items-center gap-3 h-full justify-center min-h-[400px] sm:min-h-[500px]"
                   style={{
                     background:
                       "linear-gradient(135deg, #10b981 0%, #06b6d4 100%)",
@@ -367,12 +369,12 @@ export default function ContactSection() {
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
                     transition={{ type: "spring", stiffness: 250, delay: 0.1 }}
-                    className="w-14 h-14 bg-white/25 rounded-full flex items-center justify-center"
+                    className="w-12 h-12 sm:w-14 sm:h-14 bg-white/25 rounded-full flex items-center justify-center"
                   >
-                    <Send className="w-6 h-6 text-white" />
+                    <Send className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </motion.div>
-                  <p className="font-bold text-white text-xl">Message Sent!</p>
-                  <p className="text-sm text-white/80">
+                  <p className="font-bold text-white text-lg sm:text-xl">Message Sent!</p>
+                  <p className="text-xs sm:text-sm text-white/80 px-4">
                     Thank you for reaching out. Our team will get back to you
                     within 24 hours.
                   </p>
@@ -384,16 +386,16 @@ export default function ContactSection() {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   onSubmit={handleSubmit}
-                  className="rounded-2xl border border-gray-100 bg-white p-6 flex flex-col gap-4 shadow-sm"
+                  className="rounded-2xl border border-gray-100 bg-white p-4 sm:p-6 flex flex-col gap-3 sm:gap-4 shadow-sm"
                 >
                   {/* Error message */}
                   {error && (
-                    <div className="bg-red-50 border border-red-200 rounded-lg p-3">
-                      <p className="text-sm text-red-600">{error}</p>
+                    <div className="bg-red-50 border border-red-200 rounded-lg p-2 sm:p-3">
+                      <p className="text-xs sm:text-sm text-red-600">{error}</p>
                     </div>
                   )}
 
-                  <div className="grid sm:grid-cols-2 gap-4">
+                  <div className="flex flex-col sm:grid sm:grid-cols-2 gap-3 sm:gap-4">
                     <div className="flex flex-col gap-1.5">
                       <label className="text-xs font-bold text-gray-600">
                         Full Name *
@@ -428,50 +430,35 @@ export default function ContactSection() {
                     </div>
                   </div>
 
-                  {/* Service Interest dropdown */}
-                  <div className="flex flex-col gap-1.5">
-                    <label className="text-xs font-bold text-gray-600">
-                      Service Interest
-                    </label>
-                    <select
-                      value={form.service}
-                      onChange={(e) => {
-                        setForm({ ...form, service: e.target.value });
-                        setIsDemoService(false);
-                      }}
-                      className="px-3 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition-all bg-white"
-                      disabled={loading}
-                    >
-                      <option value="">Select a service...</option>
+                  {/* Service Interest dropdown - Mobile optimized */}
+              <div className="flex flex-col gap-1.5">
+  <label className="text-xs font-bold text-gray-600">
+    Service Interest
+  </label>
+  <select
+    value={form.service}
+    onChange={(e) => {
+      setForm({ ...form, service: e.target.value });
+      setIsDemoService(false);
+    }}
+    className="px-3 py-2.5 rounded-xl border border-gray-200 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:border-transparent transition-all bg-white"
+    disabled={loading}
+  >
+    <option value="">Select a service...</option>
 
-                      {/* If coming from Request Demo, show the software name as the first selected option */}
-                      {isDemoService && form.service && (
-                        <option value={form.service}>{form.service} — Demo Request</option>
-                      )}
+    {/* If coming from Request Demo, show the software name as the first selected option */}
+    {isDemoService && form.service && (
+      <option value={form.service}>{form.service} — Demo Request</option>
+    )}
 
-                      {/* Standard service options */}
-                      <optgroup label="General Services">
-                        <option value="Software Purchase / Licensing">Software Purchase / Licensing</option>
-                        <option value="Custom Software Development">Custom Software Development</option>
-                        <option value="Digital Marketing">Digital Marketing</option>
-                        <option value="E-Commerce Setup">E-Commerce Setup</option>
-                        <option value="Metaverse / Web3">Metaverse / Web3</option>
-                        <option value="Education (Amez University)">Education (Amez University)</option>
-                        <option value="Fintech (Amez Wallet / Hub)">Fintech (Amez Wallet / Hub)</option>
-                        <option value="Other">Other</option>
-                      </optgroup>
-
-                      {/* All pre-built software names */}
-                      <optgroup label="Pre-Built Software — Demo Request">
-                        {allSoftwareNames.map((name) => (
-                          <option key={name} value={name}>
-                            {name}
-                          </option>
-                        ))}
-                      </optgroup>
-                    </select>
-                  </div>
-
+    {/* All software options directly without optgroup */}
+    {allSoftwareNames.map((name) => (
+      <option key={name} value={name}>
+        {name}
+      </option>
+    ))}
+  </select>
+</div>
                   <div className="flex flex-col gap-1.5">
                     <label className="text-xs font-bold text-gray-600">
                       Message *

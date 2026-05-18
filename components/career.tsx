@@ -74,7 +74,7 @@ export default function Career() {
             </p>
 
             <a
-              href="#"
+              href="/careers"
               className="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 transition-colors text-white font-semibold text-sm px-8 py-3 rounded-full"
             >
               Access Job Opportunities
